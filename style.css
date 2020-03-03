@@ -1,0 +1,12 @@
+ #loading{
+    display:block;
+} 
+
+p{
+    display: inline-block;
+}
+
+.results{
+    font-size: 20;
+    font-family: fantasy;
+}
