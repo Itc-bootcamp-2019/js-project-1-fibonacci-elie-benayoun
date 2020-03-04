@@ -1,12 +1,39 @@
- #loading{
-    display:block;
-} 
+.disapear{
 
-p{
+    visibility: hidden;
+}
+
+.mybutton{
     display: inline-block;
 }
+
 
 .results{
     font-size: 20;
     font-family: fantasy;
+}
+
+.show{
+    display: inline-block;
+    padding-bottom: 20%;
+    position: absolute;
+}
+
+.error{
+    background-color: #F2DEDE;
+    color: red;
+}
+
+.red-server-error{
+    color: red;
+}
+
+.red-input{
+    border: red 1px solid;
+    color: red;
+
+}
+
+.myinput{
+    display: inline;
 }

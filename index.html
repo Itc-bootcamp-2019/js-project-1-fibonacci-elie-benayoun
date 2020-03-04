@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
@@ -13,22 +18,46 @@
     <!-- <h1>the fibonnacci of <span id="n1"></span> is <span id="n2"></span></h1> -->
     <!-- third Milestone -->
     <!-- <h1>the fibonnacci of <span id="firstNumber"></span> is <span id="secondNumber"></span></h1> -->
+    <div class="container">
+      <br />
+      <h1>Fibonacci Calculator</h1>
 
-    <br/>
-    <h1>Fibonacci Calculator</h1>
-    <p>
-        The Fibonnaci Of 
-        <input type="number" placeholder="#" id="firstNumber">
-        <button onclick="myNumberFibonacci()" class="btn btn-primary ">is</button>
-        <span id="secondNumber"></span>
-    </p>
-    <div id="loading">
-    <div class="spinner-border" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-    </div>
-    <div class="results"> Results </div>
+      
+      <div class="row">
+        <div class="col-md-2 title">
+        The Fibonnaci Of
+        </div>
+        <div class="col-md-2">
+          <form>
+            <input type="number" placeholder="#" id="firstNumber" />
+          </form>
+          <div class="error disapear" id="beware">
+            Can't be larger than 50
+          </div>
+        </div>
+
+        <!-- <div class=" col-md-12 error">
+          Can't be larger than 50
+        </div> -->
+
+        <div class="col-md-1">
+          <button onclick="myNumberFibonacci()" class="btn btn-primary ">
+            is
+          </button>
+        </div>
+        <div class="col-md-3">
+          <div id="loading" class="show disapear">
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+          <span id="secondNumber" class="show"></span>
+        </div>
+      </div>
+      <div class="results">Results</div>
+
+  
+
     <script src="main.js"></script>
   </body>
-  
 </html>
