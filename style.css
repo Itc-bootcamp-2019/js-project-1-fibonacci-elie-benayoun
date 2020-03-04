@@ -1,39 +1,56 @@
-.disapear{
+.flex {
+  display: flex;
 
-    visibility: hidden;
-}
-
-.mybutton{
-    display: inline-block;
-}
-
-
-.results{
-    font-size: 20;
-    font-family: fantasy;
-}
-
-.show{
-    display: inline-block;
-    padding-bottom: 20%;
-    position: absolute;
-}
-
-.error{
-    background-color: #F2DEDE;
-    color: red;
-}
-
-.red-server-error{
-    color: red;
-}
-
-.red-input{
-    border: red 1px solid;
-    color: red;
 
 }
 
-.myinput{
-    display: inline;
+.disapear {
+  visibility: hidden;
+}
+
+.mybutton {
+  display: inline-block;
+  width: 15%;
+  height: 60%;
+  vertical-align: middle;
+}
+
+.results {
+  display: inline-block;
+  font-size: 20;
+  font-family: fantasy;
+}
+
+#loading-result{
+  display: inline-block;
+}
+
+
+.error {
+  background-color: #f2dede;
+  color: red;
+}
+
+.red-server-error {
+  color: red;
+}
+
+.red-input {
+  border: red 1px solid;
+  color: red;
+}
+
+.myinput {
+  display: inline-block;
+  
+}
+.listResult{
+  list-style: none;
+}
+.listResult,li{
+  border-bottom: 1px solid black;
+  font-size: 20px;
+  margin-right: 15%;
+  list-style: none;
+  font-family: sans-serif;
 }

@@ -3,10 +3,10 @@
 //   document.getElementById("n1").innerText = "8";
 //   document.getElementById("n2").innerText = "21";
 // }
-
 function myNumberFibonacci() {
   document.getElementById("beware").classList.add("disapear");
   document.getElementById("loading").classList.remove("disapear");
+  document.getElementById("loading-result").classList.remove("disapear");
   document.getElementById("secondNumber").classList.add("disapear");
   firstNumber = document.getElementById("firstNumber").value;
   document.getElementById("firstNumber").classList.remove("red-input");
@@ -15,16 +15,10 @@ function myNumberFibonacci() {
     document.getElementById("secondNumber").classList.remove("disapear");
     document.getElementById("beware").classList.remove("disapear");
     document.getElementById("firstNumber").classList.add("red-input");
+    document.getElementById("loading-result").classList.add("disapear");
     return;
   }
   fibonacci(firstNumber);
-  fibonnaciresult();
-  let x = document.createElement("div");
-  let t = document.createTextNode(
-    "the fibonacci of " + firstNumber + " is " + secondNumber
-  );
-  x.appendChild(t);
-  document.body.appendChild(x);
 }
 
 // third and fourth milestone
@@ -100,6 +94,7 @@ function fibonacci(firstNumber) {
       document.getElementById("secondNumber").innerText = data.result;
       document.getElementById("loading").classList.add("disapear");
       document.getElementById("secondNumber").classList.remove("disapear");
+      fibonnaciresult();
     })
     .catch(error => {
       document.getElementById("secondNumber").classList.add("red-server-error");
@@ -120,6 +115,23 @@ function fibonnaciresult() {
       return response.json();
     })
     .then(data => {
-      console.log(data.results[data.results.length - 1]);
+      const sortedActivities = data.results.sort(
+        (a, b) => b.createdDate - a.createdDate
+      );
+      let listActivities = [];
+      for (let i = 0; i < sortedActivities.length - 1 && i <= 10; i++) {
+        listActivities.push("The fibonacci of " +sortedActivities[i].number +" is " +sortedActivities[i].result +" done on " +new Date(sortedActivities[i].createdDate));
+
+        // console.log(listActivities[i]);
+      }
+      document.getElementById("listResult").innerText="";
+      for(let j=0;j<=listActivities.length-1;j++){
+      var node = document.createElement("LI");              
+      var textnode = document.createTextNode(listActivities[j]);        
+      node.appendChild(textnode);                              
+      document.getElementById("listResult").appendChild(node)
+      }
+
+      document.getElementById("loading-result").classList.add("disapear");
     });
 }
