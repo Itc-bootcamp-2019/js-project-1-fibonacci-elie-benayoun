@@ -3,7 +3,10 @@
 //   document.getElementById("n1").innerText = "8";
 //   document.getElementById("n2").innerText = "21";
 // }
+let list_save=[];
+document.getElementById("mybtn").addEventListener("click", myNumberFibonacci);
 function myNumberFibonacci() {
+  document.getElementById("secondNumber").classList.remove("red-server-error");
   document.getElementById("beware").classList.add("disapear");
   document.getElementById("loading").classList.remove("disapear");
   document.getElementById("loading-result").classList.remove("disapear");
@@ -81,57 +84,125 @@ function myNumberFibonacci() {
 //   };
 // }
 
-// //7 milestone
-function fibonacci(firstNumber) {
-  fetch("http://localhost:5050/fibonacci/" + firstNumber)
-    .then(response => {
-      return response.json();
-    })
-    .then(data => {
-      document
-        .getElementById("secondNumber")
-        .classList.remove("red-server-error");
-      document.getElementById("secondNumber").innerText = data.result;
-      document.getElementById("loading").classList.add("disapear");
-      document.getElementById("secondNumber").classList.remove("disapear");
-      fibonnaciresult();
-    })
-    .catch(error => {
-      document.getElementById("secondNumber").classList.add("red-server-error");
-      document.getElementById("secondNumber").innerText = "Server error ";
-      if (firstNumber == 42) {
-        document.getElementById("secondNumber").innerText =
-          "server error: 42 is the meaning of life";
-      }
-      document.getElementById("loading").classList.add("disapear");
-      document.getElementById("secondNumber").classList.remove("disapear");
-    });
+// // milestone 6 and 7 with fetch without save butto
+// function fibonacci(firstNumber) {
+//   fetch("http://localhost:5050/fibonacci/" + firstNumber)
+//     .then(response => {
+//       if (response.status === 400) {
+//         return response.text();
+//       } else {
+//         return response.json();
+//       }
+//     })
+//     .then(data => {
+//       if (typeof data === "object") {
+//         document.getElementById("secondNumber").innerText = data.result;
+//         fibonnaciresult();
+//       } else {
+//         document
+//           .getElementById("secondNumber")
+//           .classList.add("red-server-error");
+//         document.getElementById("secondNumber").innerText =
+//           "Server error: " + data;
+//         document.getElementById("loading-result").classList.add("disapear");
+//       }
+//       document.getElementById("loading").classList.add("disapear");
+//       document.getElementById("secondNumber").classList.remove("disapear");
+//     });
+// }
+
+// function fibonnaciresult() {
+//   let i;
+//   fetch("http://localhost:5050/getFibonacciResults")
+//     .then(response => {
+//       return response.json();
+//     })
+//     .then(data => {
+//       const sortedActivities = data.results.sort(
+//         (a, b) => b.createdDate - a.createdDate
+//       );
+//       document.getElementById("listResult").innerText = "";
+//       for (let i = 0; i <= sortedActivities.length - 1 && i <= 10; i++) {
+//         let node = document.createElement("LI");
+//         node.innerHTML = `The fibonacci of
+//             <b>${sortedActivities[i].number}</b>
+//             is
+//             <b>${sortedActivities[i].result}</b>
+//             done on
+//             ${new Date(sortedActivities[i].createdDate)}`;
+//         document.getElementById("listResult").appendChild(node);
+//       }
+
+//       document.getElementById("loading-result").classList.add("disapear");
+//     });
+// }
+// milestone 7.1 and 8 with save button
+
+async function fibonacci(firstNumber) {
+  let response = await fetch("http://localhost:5050/fibonacci/" + firstNumber);
+  if (response.status === 400 || response.status === 500) {
+    data = await response.text();
+  } else {
+    data = await response.json();
+  }
+  if (typeof data === "object") {
+    document.getElementById("secondNumber").innerText = data.result;
+    if (document.getElementById("myCheck").checked) {
+    fibonnaciresult();
+    }
+    else{
+      document.getElementById("loading-result").classList.add("disapear");
+    }
+  } 
+  else {
+    document.getElementById("secondNumber").classList.add("red-server-error");
+    document.getElementById("secondNumber").innerText = "Server error: " + data;
+    document.getElementById("loading-result").classList.add("disapear");
+  }
+  document.getElementById("secondNumber").classList.remove("disapear");
+  document.getElementById("loading").classList.add("disapear");
 }
 
-function fibonnaciresult() {
-  let i;
-  fetch("http://localhost:5050/getFibonacciResults")
-    .then(response => {
-      return response.json();
-    })
-    .then(data => {
-      const sortedActivities = data.results.sort(
-        (a, b) => b.createdDate - a.createdDate
-      );
-      let listActivities = [];
-      for (let i = 0; i < sortedActivities.length - 1 && i <= 10; i++) {
-        listActivities.push("The fibonacci of " +sortedActivities[i].number +" is " +sortedActivities[i].result +" done on " +new Date(sortedActivities[i].createdDate));
+async function fibonnaciresult() {
+  let response = await fetch("http://localhost:5050/getFibonacciResults");
+  data = await response.json();
+  data.results = data.results.sort(
+    (a, b) => b.createdDate - a.createdDate
+  );
+    
+    list_save.push(data.results[0]);
+  document.getElementById("listResult").innerText = "";
+  for (let i = list_save.length - 1; i>= 0; i--) {
+    let list = document.createElement("LI");
+    let fibo = document.createElement("DIV");
+    let number = document.createElement("DIV");
+    let is = document.createElement("DIV");
+    let my_result = document.createElement("DIV");
+    let done = document.createElement("DIV");
+    let date = document.createElement("DIV");
 
-        // console.log(listActivities[i]);
-      }
-      document.getElementById("listResult").innerText="";
-      for(let j=0;j<=listActivities.length-1;j++){
-      var node = document.createElement("LI");              
-      var textnode = document.createTextNode(listActivities[j]);        
-      node.appendChild(textnode);                              
-      document.getElementById("listResult").appendChild(node)
-      }
+    fibo.innerHTML = "The Fibonnaci Of ";
+    number.innerHTML = `${list_save[i].number}`;
+    is.innerHTML = " is ";
+    my_result.innerHTML = `${list_save[i].result}`;
+    done.innerHTML = ". Calculated at:  ";
+    date.innerHTML = `${new Date(list_save[i].createdDate)}`;
 
-      document.getElementById("loading-result").classList.add("disapear");
-    });
+    list.appendChild(fibo);
+    list.appendChild(number);
+    list.appendChild(is);
+    list.appendChild(my_result);
+    list.appendChild(done);
+    list.appendChild(date);
+
+    fibo.className = "inline-div";
+    number.className = "bold-number";
+    is.className = "inline-div";
+    my_result.className = "bold-number";
+    done.className = "inline-div";
+    date.className = "inline-div";
+    document.getElementById("listResult").appendChild(list);
+  }
+
+  document.getElementById("loading-result").classList.add("disapear");
 }

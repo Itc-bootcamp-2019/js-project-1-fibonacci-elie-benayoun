@@ -21,48 +21,55 @@
 
     <br />
     <div class="container">
-    <div>
-      <h1>Fibonacci Calculator</h1>
-    </div>
-    <div class="flex">
-    <div>
-      The Fibonnaci Of
-    </div>
-    <div>
-      <input class="myinput" type="number" placeholder="#" id="firstNumber" />
-
-      <div class="error disapear" id="beware">
-        Can't be larger than 50
+      <div>
+        <h1 class="f-title">Fibonacci Calculator</h1>
       </div>
-    </div>
-    <div>
-      <button onclick="myNumberFibonacci()" class="btn btn-primary mybutton">
-        is
-      </button>
-    </div>
-    <div>
-      <div id="loading" class="disapear">
-        <div class="spinner-border" role="status">
-          <span class="sr-only">Loading...</span>
+      <div class="flex">
+        <div>
+          <div>The Fibonnaci Of</div>
+          <input id="myCheck"type="checkbox" name="calcul" />
+          <label for="calcul"> Save calculation</label>
+        </div>
+
+        <div>
+          <input
+            class="myinput"
+            type="number"
+            placeholder="#"
+            id="firstNumber"
+          />
+
+          <div class="error disapear" id="beware">
+            Can't be larger than 50
+          </div>
+        </div>
+        <div>
+          <button id="mybtn" class="btn btn-primary mybutton">
+           <span class="textButton"> is</span>
+          </button>
+        </div>
+        <div>
+          <div id="loading" class="disapear">
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <span id="secondNumber" class="show"></span>
         </div>
       </div>
-    </div>
-    <div>
-      <span id="secondNumber" class="show"></span>
-    </div>
 
-  </div>
-  
-    <div class="results">
-      <p style="display: inline-block;">Results</p>
-      <div id="loading-result" class="disapear">
-        <div class="spinner-border" role="status">
-          <span class="sr-only">Loading...</span>
+      <div class="results">
+        <p class="text-results">Results</p>
+        <div id="loading-result" class="disapear">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
         </div>
       </div>
+      <ul id="listResult"></ul>
     </div>
-    <ul id="listResult"></ul>
-</div>
     <script src="main.js"></script>
   </body>
 </html>
