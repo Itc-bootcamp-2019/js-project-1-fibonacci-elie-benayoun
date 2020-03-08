@@ -1,4 +1,4 @@
-.f-title{
+.f-title {
   font-size: 72px;
   line-height: 79px;
   font-family: sans-serif;
@@ -7,16 +7,37 @@
 .flex {
   padding-top: 5%;
   display: flex;
+  justify-content: left;
 }
 
 .disapear {
-  visibility: hidden;
+  display: none !important;
 }
 
+.fibonnaci-presentation {
+  font-size: 24px;
+}
+
+.input-style {
+  width: 5%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+#loading{
+  padding-left: 20%;
+}
 .mybutton {
-  width: 15%;
-  height: 60%;
-  max-height: 30px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  max-height: 60px;
+  margin-left: 10%;
+  border-radius: 20%;
+}
+
+.textButton {
+  text-align: center;
 }
 
 .results {
@@ -27,7 +48,14 @@
   font-family: sans-serif;
 }
 
-.text-results{
+.result-style {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 24px;
+  padding-left: 60%;
+}
+
+.text-results {
   display: inline-block;
 }
 
@@ -53,29 +81,53 @@
 
 .myinput {
   display: inline-block;
+  width: 95%;
+  border: 1px solid #cccccc;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 24px;
 }
-
-#myCheck{
+.flex-info {
+  display: flex;
+}
+#myCheck {
   margin-top: 10%;
 }
-.bold-number{
+.bold-number {
   font-weight: bold;
   display: inline-block;
   padding: 0.2%;
 }
 
-.inline-div{
+.inline-div {
   display: inline-block;
-  padding: 0.2%
+  padding: 0.2%;
 }
 #listResult {
   list-style: none;
+  padding: 0;
 }
 #listResult li {
   border-bottom: 1px solid black;
   font-size: 20px;
-  width: 90%;
+  width: 95%;
   list-style: none;
   font-family: sans-serif;
   padding-top: 2%;
 }
+
+#select-result {
+  display: block;
+  width: 15%;
+  background-color: #e6e6e6;
+  border-radius: 4px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+
+#select-result option {
+  background-color: white;
+  font-size:  18px;
+  border-radius: 100%;
+}
+

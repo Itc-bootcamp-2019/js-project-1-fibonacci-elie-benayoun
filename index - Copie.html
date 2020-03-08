@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
   </head>
 
   <body>
@@ -26,26 +27,20 @@
       </div>
       <div class="flex">
         <div>
-          <div>The Fibonnaci Of</div>
-          <input id="myCheck"type="checkbox" name="calcul" />
-          <label for="calcul"> Save calculation</label>
+          <div class="fibonnaci-presentation">The Fibonacci Of</div>
         </div>
 
-        <div>
+        <div class="input-style">
           <input
             class="myinput"
             type="number"
             placeholder="#"
             id="firstNumber"
           />
-
-          <div class="error disapear" id="beware">
-            Can't be larger than 50
-          </div>
         </div>
         <div>
           <button id="mybtn" class="btn btn-primary mybutton">
-           <span class="textButton"> is</span>
+            <span class="textButton"> is</span>
           </button>
         </div>
         <div>
@@ -56,10 +51,18 @@
           </div>
         </div>
         <div>
-          <span id="secondNumber" class="show"></span>
+          <span id="secondNumber" class="show result-style"></span>
         </div>
       </div>
-
+      <div class="flex-info">
+        <div>
+          <input id="myCheck" type="checkbox" name="calcul" />
+          <label for="calcul"> Save calculation</label>
+        </div>
+        <div class="error disapear" id="beware">
+          Can't be larger than 50
+        </div>
+      </div>
       <div class="results">
         <p class="text-results">Results</p>
         <div id="loading-result" class="disapear">
@@ -68,6 +71,14 @@
           </div>
         </div>
       </div>
+
+      <select id="select-result" name="sort by">
+        <option><div class="option-style">Number Asc</div></option>
+        <option>Number Desc</option>
+        <option>Date Asc</option>
+        <option>Date Desc</option>
+        <option hidden selected="true">Sort By</option>
+      </select>
       <ul id="listResult"></ul>
     </div>
     <script src="main.js"></script>
