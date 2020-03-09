@@ -50,8 +50,8 @@
             </div>
           </div>
         </div>
-        <div>
-          <span id="secondNumber" class="show result-style"></span>
+        <div class="div-result">
+          <span id="secondNumber" class="result-style"></span>
         </div>
       </div>
       <div class="flex-info">
@@ -71,14 +71,15 @@
           </div>
         </div>
       </div>
-
-      <select id="select-result" name="sort by">
-        <option><div class="option-style">Number Asc</div></option>
-        <option>Number Desc</option>
-        <option>Date Asc</option>
-        <option>Date Desc</option>
-        <option hidden selected="true">Sort By</option>
-      </select>
+      <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Sort By &#x25BC;</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a id="numberA" onclick="myFunction()" >Number Asc</a>
+          <a id="numberD" onclick="myFunction()">Number Desc</a>
+          <a id="dateA" onclick="myFunction()" >Date Asc</a>
+          <a id="dateD" onclick="myFunction()">Date Desc</a>
+        </div>
+      </div>
       <ul id="listResult"></ul>
     </div>
     <script src="main.js"></script>

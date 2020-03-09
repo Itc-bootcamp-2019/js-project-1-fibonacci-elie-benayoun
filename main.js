@@ -3,11 +3,25 @@
 //   document.getElementById("n1").innerText = "8";
 //   document.getElementById("n2").innerText = "21";
 // }
-fibonnaciresult();
+let numberSort=0;
+document.getElementById("numberA").addEventListener("click",()=>{
+  numberSort=0;
+  fibonnaciresult(numberSort)
+})
+document.getElementById("numberD").addEventListener("click",()=>{
+  numberSort=1;
+  fibonnaciresult(numberSort)
+})
+document.getElementById("dateA").addEventListener("click",()=>{
+  numberSort=2;
+  fibonnaciresult(numberSort)
+})
+document.getElementById("dateD").addEventListener("click",()=>{
+  numberSort=3;
+  fibonnaciresult(numberSort)
+})
+fibonnaciresult(numberSort);
 document.getElementById("mybtn").addEventListener("click", myNumberFibonacci);
-document
-  .getElementById("select-result")
-  .addEventListener("click", fibonnaciresult);
 function myNumberFibonacci() {
   document.getElementById("secondNumber").classList.add("result-style");
   document.getElementById("secondNumber").classList.remove("red-server-error");
@@ -18,8 +32,8 @@ function myNumberFibonacci() {
   firstNumber = document.getElementById("firstNumber").value;
   document.getElementById("firstNumber").classList.remove("red-input");
   if (firstNumber > 50) {
+    document.getElementById("secondNumber").classList.add("red-server-error");
     document.getElementById("loading").classList.add("disapear");
-    document.getElementById("secondNumber").classList.remove("disapear");
     document.getElementById("beware").classList.remove("disapear");
     document.getElementById("firstNumber").classList.add("red-input");
     document.getElementById("loading-result").classList.add("disapear");
@@ -114,7 +128,7 @@ function myfibonacci(firstNumber) {
 // function fibonacci(firstNumber) {
 //   fetch("http://localhost:5050/fibonacci/" + firstNumber)
 //     .then(response => {
-//       if (response.status === 400) {
+//       if (response.ok ===false) {
 //         return response.text();
 //       } else {
 //         return response.json();
@@ -174,7 +188,7 @@ async function fibonacci(firstNumber) {
   if (typeof data === "object") {
     document.getElementById("secondNumber").innerText = data.result;
 
-    fibonnaciresult();
+    fibonnaciresult(numberSort);
   } else {
     document.getElementById("secondNumber").classList.add("red-server-error");
     document.getElementById("secondNumber").innerText = "Server error: " + data;
@@ -185,14 +199,14 @@ async function fibonacci(firstNumber) {
   document.getElementById("loading").classList.add("disapear");
 }
 
-async function fibonnaciresult() {
+async function fibonnaciresult(sortnumber) {
   let response = await fetch("http://localhost:5050/getFibonacciResults");
   data = await response.json();
-  if (document.getElementById("select-result").selectedIndex == "3") {
+  if (sortnumber == 3) {
     data.results = data.results.sort((a, b) => b.createdDate - a.createdDate);
-  } else if (document.getElementById("select-result").selectedIndex == "2") {
+  } else if (sortnumber == 2) {
     data.results = data.results.sort((a, b) => a.createdDate - b.createdDate);
-  } else if (document.getElementById("select-result").selectedIndex == "0") {
+  } else if (sortnumber == 0) {
     data.results = data.results.sort((a, b) => a.number - b.number);
   } else {
     data.results = data.results.sort((a, b) => b.number - a.number);
@@ -235,10 +249,17 @@ async function fibonnaciresult() {
 }
 
 function myFunction() {
-  var x = document.getElementById("Demo");
-  if (x.className.indexOf("w3-show") == -1) { 
-    x.className += " w3-show";
-  } else {
-    x.className = x.className.replace(" w3-show", "");
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
   }
 }
