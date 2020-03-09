@@ -71,6 +71,9 @@
   background-color: #f2dede;
   border: 3px white solid;
   color: red;
+  padding-top: 0.5%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
   
 }
 
@@ -80,7 +83,7 @@
 }
 
 .red-input {
-  border: red 1px solid;
+  border: red 1px solid !important;
   color: red;
 }
 

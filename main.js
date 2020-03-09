@@ -3,23 +3,29 @@
 //   document.getElementById("n1").innerText = "8";
 //   document.getElementById("n2").innerText = "21";
 // }
-let numberSort=0;
-document.getElementById("numberA").addEventListener("click",()=>{
-  numberSort=0;
-  fibonnaciresult(numberSort)
-})
-document.getElementById("numberD").addEventListener("click",()=>{
-  numberSort=1;
-  fibonnaciresult(numberSort)
-})
-document.getElementById("dateA").addEventListener("click",()=>{
-  numberSort=2;
-  fibonnaciresult(numberSort)
-})
-document.getElementById("dateD").addEventListener("click",()=>{
-  numberSort=3;
-  fibonnaciresult(numberSort)
-})
+let numberSort = 0;
+document.getElementById("numberA").addEventListener("click", () => {
+  numberSort = 0;
+  fibonnaciresult(numberSort);
+  myFunction();
+});
+document.getElementById("numberD").addEventListener("click", () => {
+  numberSort = 1;
+  fibonnaciresult(numberSort);
+  myFunction();
+});
+document.getElementById("dateA").addEventListener("click", () => {
+  numberSort = 2;
+  fibonnaciresult(numberSort);
+  myFunction();
+});
+document.getElementById("dateD").addEventListener("click", () => {
+  numberSort = 3;
+  fibonnaciresult(numberSort);
+  myFunction();
+});
+document.getElementById("mydropbutton").addEventListener("click", myFunction);
+
 fibonnaciresult(numberSort);
 document.getElementById("mybtn").addEventListener("click", myNumberFibonacci);
 function myNumberFibonacci() {
@@ -252,14 +258,14 @@ function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
+  if (!event.target.matches(".dropbtn")) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
+      if (openDropdown.classList.contains("show")) {
+        openDropdown.classList.remove("show");
       }
     }
   }
-}
+};
