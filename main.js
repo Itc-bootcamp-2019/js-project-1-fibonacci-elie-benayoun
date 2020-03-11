@@ -208,11 +208,11 @@ async function fibonacci(firstNumber) {
 async function fibonnaciresult(sortnumber) {
   let response = await fetch("http://localhost:5050/getFibonacciResults");
   data = await response.json();
-  if (sortnumber == 3) {
+  if (sortnumber === 3) {
     data.results = data.results.sort((a, b) => b.createdDate - a.createdDate);
-  } else if (sortnumber == 2) {
+  } else if (sortnumber === 2) {
     data.results = data.results.sort((a, b) => a.createdDate - b.createdDate);
-  } else if (sortnumber == 0) {
+  } else if (sortnumber === 0) {
     data.results = data.results.sort((a, b) => a.number - b.number);
   } else {
     data.results = data.results.sort((a, b) => b.number - a.number);

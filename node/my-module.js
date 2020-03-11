@@ -1,15 +1,19 @@
 const fs = require("fs");
 const path = require('path');
+let newlist=[]
+module.exports = function  (directory,extension,callback){
+  fs.readdir(directory,(error,filecontent)=>{
+    if (error) {
+      callback(error,null);
+    }
+    else{
+    for (let i = 0; i < filecontent.length; i++) {
+      if (path.extname(filecontent[i]) == "."+extension) {
+        newlist.push(filecontent[i]);
+      }
+    }
+    callback(null,newlist);
+  }
+  });
 
-module.exports = function (){
-    fs.readdir(process.argv[2], (error, filecontent) => {
-        if (error) {
-          console.log(error);
-        }
-        for (let i = 0; i < filecontent.length; i++) {
-          if (path.extname(filecontent[i]) == "."+process.argv[3]) {
-            console.log(filecontent[i]);
-          }
-        }
-      });
 }
