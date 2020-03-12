@@ -206,6 +206,7 @@ async function fibonacci(firstNumber) {
 }
 
 async function fibonnaciresult(sortnumber) {
+  document.getElementById("loading-result").classList.remove("disapear");
   let response = await fetch("http://localhost:5050/getFibonacciResults");
   data = await response.json();
   if (sortnumber === 3) {

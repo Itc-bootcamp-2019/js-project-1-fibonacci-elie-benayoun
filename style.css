@@ -19,9 +19,11 @@
 }
 
 .input-style {
-  width: 5%;
+  width: 20%;
+  min-width : 50px;
   margin-left: 1%;
   margin-right: 1%;
+  padding-left: 1%;
 }
 #loading {
   padding-left: 20%;
@@ -31,7 +33,7 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  max-height: 60px;
+  max-height: 40px;
   margin-left: 10%;
   border-radius: 20%;
 }
@@ -74,6 +76,7 @@
   padding-top: 0.5%;
   padding-left: 0.5%;
   padding-right: 0.5%;
+  text-align: right;
   
 }
 
@@ -85,6 +88,23 @@
 .red-input {
   border: red 1px solid !important;
   color: red;
+}
+
+.red-container{
+  display: flex;
+  flex-direction: column;
+  width:29%;
+  min-width: 250px;
+  max-width: 271px;
+}
+
+.up-container{
+  display: flex;
+}
+.down-container{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 4%;
 }
 
 .myinput {
@@ -131,6 +151,7 @@
   border: none;
   cursor: pointer;
   width: 13%;
+  min-width: 120px;
   height: 12%;
   text-align: left;
 }

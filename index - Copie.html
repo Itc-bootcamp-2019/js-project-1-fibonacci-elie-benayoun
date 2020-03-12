@@ -26,6 +26,8 @@
         <h1 class="f-title">Fibonacci Calculator</h1>
       </div>
       <div class="flex">
+      <div class =red-container>
+        <div class="up-container">
         <div>
           <div class="fibonnaci-presentation">The Fibonacci Of</div>
         </div>
@@ -38,6 +40,14 @@
             id="firstNumber"
           />
         </div>
+        </div>
+        <div class="down-container">
+          <div class="error disapear" id="beware">
+            Can't be larger than 50
+          </div>
+
+        </div>
+      </div>
         <div>
           <button id="mybtn" class="btn btn-primary mybutton">
             <span class="textButton"> is</span>
@@ -58,9 +68,6 @@
         <div>
           <input id="myCheck" type="checkbox" name="calcul" />
           <label for="calcul"> Save calculation</label>
-        </div>
-        <div class="error disapear" id="beware">
-          Can't be larger than 50
         </div>
       </div>
       <div class="results">
